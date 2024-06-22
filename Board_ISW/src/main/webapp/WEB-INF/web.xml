@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+	
+	<welcome-file-list>
+		<welcome-file>/WEB-INF/views/login.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<!-- 로그인 -->
+	<servlet>
+		<servlet-name>login</servlet-name>
+		<servlet-class>com.min.edu.ctrl.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>login</servlet-name>
+		<url-pattern>/loginServlet.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 메인페이지 -->
+	<servlet>
+		<servlet-name>mainPage</servlet-name>
+		<servlet-class>com.min.edu.ctrl.MainpageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>mainPage</servlet-name>
+		<url-pattern>/mainBoard.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 다중삭제 delflag 변경 -->
+	<servlet>
+		<servlet-name>multiDelete</servlet-name>
+		<servlet-class>com.min.edu.ctrl.MultiDeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>multiDelete</servlet-name>
+		<url-pattern>/multiDelete.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 글 입력 -->
+	<servlet>
+		<servlet-name>writeBoard</servlet-name>
+		<servlet-class>com.min.edu.ctrl.WriteBoardServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>writeBoard</servlet-name>
+		<url-pattern>/writeBoard.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 글 상세조회 -->
+	<servlet>
+		<servlet-name>detailBoard</servlet-name>
+		<servlet-class>com.min.edu.ctrl.DetailBoardServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>detailBoard</servlet-name>
+		<url-pattern>/detailBoard.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- DB에서 글삭제 -->
+	<servlet>
+		<servlet-name>realDelete</servlet-name>
+		<servlet-class>com.min.edu.ctrl.RealDeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>realDelete</servlet-name>
+		<url-pattern>/realDelete.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 글 수정 -->
+	<servlet>
+		<servlet-name>modifyBoard</servlet-name>
+		<servlet-class>com.min.edu.ctrl.ModifyBoardServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>modifyBoard</servlet-name>
+		<url-pattern>/modifyBoard.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 회원 관리 -->
+	<servlet>
+		<servlet-name>registform</servlet-name>
+		<servlet-class>com.min.edu.ctrl.RegistformServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>registform</servlet-name>
+		<url-pattern>/registform.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 중복검사 -->
+	<servlet>
+		<servlet-name>duplicateId</servlet-name>
+		<servlet-class>com.min.edu.ctrl.DuplicateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>duplicateId</servlet-name>
+		<url-pattern>/duplicateId.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 유저정보 조회 -->
+	<servlet>
+		<servlet-name>userListsBoard</servlet-name>
+		<servlet-class>com.min.edu.ctrl.UserListsBoardServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>userListsBoard</servlet-name>
+		<url-pattern>/userListsBoard.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- User 승인 -->
+	<servlet>
+		<servlet-name>userUpdate</servlet-name>
+		<servlet-class>com.min.edu.ctrl.UserUpdateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>userUpdate</servlet-name>
+		<url-pattern>/userUpdate.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 유저 탈퇴 -->
+	<servlet>
+		<servlet-name>userDelete</servlet-name>
+		<servlet-class>com.min.edu.ctrl.UserDeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>userDelete</servlet-name>
+		<url-pattern>/userDelete.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 내글 조회 -->
+	<servlet>
+		<servlet-name>myBoardLists</servlet-name>
+		<servlet-class>com.min.edu.ctrl.MyBoardListsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>myBoardLists</servlet-name>
+		<url-pattern>/myBoardLists.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 중복 검사 -->
+	<servlet>
+		<servlet-name>idCheckAjax</servlet-name>
+		<servlet-class>com.min.edu.ctrl.IdCheckAjaxServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>idCheckAjax</servlet-name>
+		<url-pattern>/idCheckAjax.do</url-pattern>
+	</servlet-mapping>
+	
+</web-app>
+
+
+
+
+
+

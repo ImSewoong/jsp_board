@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.min.edu.model.UserInfoDaoImpl">
+  	
+  	<!-- 로그인 login -->
+  	<select id="login" parameterType="java.util.Map" resultType="EmpInfoDto">
+		SELECT ID, PASSWORD , NAME , PHONE , ENABLE ,AUTH 
+			FROM EMPINFO e 
+			WHERE e.ID = #{id} AND PASSWORD = #{pw}
+			AND ENABLE = 'Y'
+	</select>
+	
+	<!-- 사용자 입력 insertUser -->
+	<insert id="insertUser" parameterType="EmpInfoDto">
+		INSERT INTO EMPINFO e (ID, PASSWORD, NAME, 
+						PHONE, ENABLE , AUTH, PHOTO)
+	   		VALUES(#{id}, #{password}, #{name}, #{phone}, 'D', 'USER', #{photo})
+	</insert>
+	
+	<!-- 아이디 중복체크 duplicateId -->
+	<select id="duplicateId" parameterType="java.lang.String" resultType="java.lang.String">
+			SELECT ID
+				FROM EMPINFO e
+				WHERE ID = #{id}
+	</select>
+	
+	<!-- 유저 전체 조회 -->
+	<select id="userListSelectAll" resultType="EmpInfoDto" parameterType="java.util.Map">
+		SELECT ID, PASSWORD , 
+			NAME , PHONE , ENABLE , AUTH, PHOTO
+			FROM(SELECT ID, PASSWORD , NAME , 
+						PHONE , ENABLE , AUTH, PHOTO,
+						ROW_NUMBER() OVER(ORDER BY ID) RN
+						FROM EMPINFO)
+			WHERE RN BETWEEN #{start} AND #{last}
+	</select>
+	
+	<select id="userTotalCount" parameterType="java.lang.Integer" resultType="int">
+		SELECT COUNT(*) 
+			FROM EMPINFO e
+	</select>
+	
+	<!-- 사용자 삭제 delUser -->
+	<delete id="delUser" parameterType="java.lang.String">
+		UPDATE EMPINFO e SET ENABLE='N'
+		WHERE ID = #{name}
+	</delete>
+	
+	<!-- 사용자 승인 okUser-->
+	<update id="okUser" parameterType="java.lang.String">
+		UPDATE EMPINFO e SET ENABLE='Y'
+		WHERE ID = #{name}
+	</update>
+	
+	
+	
+	
+  
+</mapper>
